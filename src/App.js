@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { testClick } from './actions/index'
 
 const App = (props) => {
 const { isLoading, plants, error } = props
@@ -7,6 +8,7 @@ const { isLoading, plants, error } = props
     <div className="App">
       <h1>Hello World!</h1>
       <h2>{error}</h2>
+      <button onClick={() => testClick()}>Test Button</button>
     </div>
   );
 }
