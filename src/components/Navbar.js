@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Button, Container } from 'semantic-ui-react'
 
@@ -8,25 +9,19 @@ const Navbar = () => {
     return (
         <Menu>
         <Container textAlign="right" >
-            <Menu.Item
-            name='Home'
-            
-            
-            >
-            Home 
-            </Menu.Item>
+            <Link to='/'>
+                <Menu.Item name='Home'>
+                Home 
+                </Menu.Item>
+            </Link>
 
-            <Menu.Item
-            name='Sign Up'
+            <Link to='/login'>
+                <Menu.Item name='Sign Up'>
+                Sign Up 
+                </Menu.Item>
+            </Link>
             
-            >
-            Sign Up 
-            </Menu.Item>
-
-            <Menu.Item
-            name='Sign In'
-            
-            >
+            <Menu.Item name='Sign In'>
             Sign In
             </Menu.Item>
         </Container>

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { Container, Header } from 'semantic-ui-react'
+import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 
 export default function Login(){
     const formState = {
@@ -13,6 +13,25 @@ export default function Login(){
     return (
         <Container text>
             <Header>Create an account</Header>
+            <Card fluid>
+                <Card.Content>
+                    <Form>
+                    <Form.Field>
+                        <label>Username</label>
+                        <input placeholder='' />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Password</label>
+                        <input placeholder='' />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Phone Number</label>
+                        <input placeholder='' />
+                    </Form.Field>
+                    <Button primary>Register</Button>
+                    </Form>
+                </Card.Content>
+            </Card>
         </Container>
     )
 }

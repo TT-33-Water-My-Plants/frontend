@@ -5,19 +5,21 @@ import { testClick, alertTest } from './actions/index'
 
 import { Container, Button } from 'semantic-ui-react'
 
+import Home from './components/Home'
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
+import Login from './components/Login'
 
 const App = (props) => {
 const { isLoading, plants, error } = props
   return (
     <div className="App">
       <Navbar />
-      <Banner />
-      <Container text>
-        <h1>Hello World!</h1>
-        <h2>{error}</h2>
-        <Button onClick={(e) => testClick()}>Test Button</Button>
+      <Container>
+        <Switch>
+           <Route exact path='/' component={Home} />
+           <Route path='/login' component={Login} />
+        </Switch>
       </Container>
     </div>
   );
