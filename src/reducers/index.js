@@ -8,7 +8,7 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case TEST_CLICK:
+        case TEST_CLICK: //This can be used to check actions quickly
             return console.log('hello')
          default:
              return state
