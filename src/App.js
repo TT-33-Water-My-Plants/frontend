@@ -3,11 +3,11 @@ import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { testClick, alertTest } from './actions/index'
 
-import { Container, Button } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 import Home from './components/Home'
 import Navbar from './components/Navbar'
-import Banner from './components/Banner'
+import SignUp from './components/SignUp'
 import Login from './components/Login'
 
 const App = (props) => {
@@ -18,6 +18,7 @@ const { isLoading, plants, error } = props
       <Container>
         <Switch>
            <Route exact path='/' component={Home} />
+           <Route path='/signup' component={SignUp} />
            <Route path='/login' component={Login} />
         </Switch>
       </Container>

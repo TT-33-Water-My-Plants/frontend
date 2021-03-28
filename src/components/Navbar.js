@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Menu, Button, Container } from 'semantic-ui-react'
+import { Menu, Image, Container } from 'semantic-ui-react'
 
 const Navbar = () => {
     const [active, setActive] = useState('')
@@ -11,19 +11,22 @@ const Navbar = () => {
         <Container textAlign="right" >
             <Link to='/'>
                 <Menu.Item name='Home'>
-                Home 
+                    Water My Plants
                 </Menu.Item>
             </Link>
 
-            <Link to='/login'>
+            <Link to='/signup'>
                 <Menu.Item name='Sign Up'>
                 Sign Up 
                 </Menu.Item>
             </Link>
-            
-            <Menu.Item name='Sign In'>
-            Sign In
-            </Menu.Item>
+
+            <Link to="login">
+                <Menu.Item name='Sign In'>
+                Sign In
+                </Menu.Item>
+            </Link>
+
         </Container>
       </Menu>
     )

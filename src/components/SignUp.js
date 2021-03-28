@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 
-export default function Login(){
+export default function SignUp(){
     const formState = {
         username: '',
         password: '',
         phoneNumber: ''
     }
+
     const [form, setForm] = useState(formState)
 
     const handleChange = (e) => {
@@ -17,10 +18,9 @@ export default function Login(){
             [name]: value
         })
     }
-
     return (
         <Container text>
-            <Header>Login to your account</Header>
+            <Header>Create an account</Header>
             <Card fluid>
                 <Card.Content>
                     <Form>
@@ -51,7 +51,7 @@ export default function Login(){
                             onChange={handleChange}
                         />
                     </Form.Field>
-                    <Button primary>Login</Button>
+                    <Button primary>Register</Button>
                     </Form>
                 </Card.Content>
             </Card>
