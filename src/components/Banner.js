@@ -6,7 +6,7 @@ import banner3 from '../assets/banner3.jpg'
 
 export default function Banner() {
     return (
-        <Container height="20vh">
+        <Container>
             <Image src={banner3} fluid/>
         </Container>
     )

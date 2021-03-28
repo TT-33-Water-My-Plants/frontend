@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { testClick } from './actions/index'
+import { testClick, alertTest } from './actions/index'
 
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Button } from 'semantic-ui-react'
 
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
@@ -17,7 +17,7 @@ const { isLoading, plants, error } = props
       <Container text>
         <h1>Hello World!</h1>
         <h2>{error}</h2>
-        <button onClick={() => testClick()}>Test Button</button>
+        <Button onClick={(e) => testClick()}>Test Button</Button>
       </Container>
     </div>
   );
