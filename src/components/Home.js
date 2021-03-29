@@ -11,7 +11,7 @@ const Home = (props) => {
         <>
             <Banner />
             <h1>Hello World!</h1>
-            <Button loading={isLoading} color='green' onClick={() => testClick()} >Test Button</Button>
+            <Button loading={isLoading} color='blue' onClick={() => testClick()} >Test Button</Button>
         </>
     )
 }
