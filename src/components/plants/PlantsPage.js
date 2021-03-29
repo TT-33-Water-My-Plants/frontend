@@ -8,9 +8,10 @@ const PlantsPage = (props) => {
     const [plantsList, setPlantsList] = useState([])
     useEffect(() => {
         axios
-        .get(`https://tt-33-water-my-plants.herokuapp.com/api/plants`)
+        .get(`https://tt-33-water-my-plants.herokuapp.com/api/plants`, {headers: {'Access-Control-Allow-Origin': '*'}})
         .then(res => {
             console.log(res)
+            setPlantsList(res.data)
         })
         .catch(err => {
             console.error(`There was a problem fetching the plants: ${err.message}`)
@@ -20,6 +21,7 @@ const PlantsPage = (props) => {
     return (
         <Container>
             <h1>HELLO from Plants Page</h1>
+
         </Container>
     )
 }
