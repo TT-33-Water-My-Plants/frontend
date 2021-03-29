@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
-export default function Login(){
+ const Login = (props) => {
+    const { isLoading } = props
     const formState = {
         username: '',
         password: '',
@@ -32,10 +34,16 @@ export default function Login(){
                         <label>Phone Number</label>
                         <input />
                     </Form.Field>
-                    <Button primary>Login</Button>
+                    <Button loading={isLoading} primary>Login</Button>
                     </Form>
                 </Card.Content>
             </Card>
         </Container>
     )
 }
+const mapToStateProps = state => {
+    return {
+      isLoading: state.isLoading,
+    }
+  }
+  export default connect(mapToStateProps, {})(Login)
