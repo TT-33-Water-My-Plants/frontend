@@ -4,7 +4,7 @@ import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom';
 export default function Login(props) {
-    import { connect } from 'react-redux'
+
 
     const Login = (props) => {
 
@@ -62,53 +62,53 @@ export default function Login(props) {
                 <Card fluid>
                     <Card.Content>
                         <Form>
-<<<<<<< HEAD
-                        <Form.Field>
-                            <label>Username</label>
-                            <input value={form.username}
-                                onChange={handleChange}
-                                name="username"
-                                type="text" />
-                        </Form.Field>
-                        <Form.Field>
-                            <label>Password</label>
-                            <input value={form.password}
-                                onChange={handleChange}
-                                name="password"
-                                type="text" />
-                        </Form.Field>
-                        <Form.Field>
-                            <label>Phone Number</label>
-                            <input value={form.phoneNumber}
-                                onChange={handleChange}
-                                name="phoneNumber"
-                                type="text" />
-                        </Form.Field>
-                        <Button primary>Login</Button>
-=======
-                    <Form.Field>
-                            <label>Username</label>
-                            <input />
-                        </Form.Field>
-                        <Form.Field>
-                            <label>Password</label>
-                            <input />
-                        </Form.Field>
-                        <Form.Field>
-                            <label>Phone Number</label>
-                            <input />
-                        </Form.Field>
-                        <Button loading={isLoading} primary>Login</Button>
->>>>>>> 33d38302381c90efad8a638f763b34d63eee5599
-                    </Form>
-                </Card.Content>
-            </Card>
-        </Container >
-    )
-}
-const mapToStateProps = state => {
-    return {
-        isLoading: state.isLoading,
+
+                            <Form.Field>
+                                <label>Username</label>
+                                <input value={form.username}
+                                    onChange={handleChange}
+                                    name="username"
+                                    type="text" />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Password</label>
+                                <input value={form.password}
+                                    onChange={handleChange}
+                                    name="password"
+                                    type="text" />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Phone Number</label>
+                                <input value={form.phoneNumber}
+                                    onChange={handleChange}
+                                    name="phoneNumber"
+                                    type="text" />
+                            </Form.Field>
+                            <Button primary>Login</Button>
+
+                            <Form.Field>
+                                <label>Username</label>
+                                <input />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Password</label>
+                                <input />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Phone Number</label>
+                                <input />
+                            </Form.Field>
+                            <Button loading={isLoading} primary>Login</Button>
+
+                        </Form>
+                    </Card.Content>
+                </Card>
+            </Container >
+        )
     }
-}
-export default connect(mapToStateProps, {})(Login)
+    const mapToStateProps = state => {
+        return {
+            isLoading: state.isLoading,
+        }
+    }
+    export default connect(mapToStateProps, {})(Login)
