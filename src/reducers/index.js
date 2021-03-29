@@ -1,6 +1,7 @@
 import { TEST_CLICK, ALERT } from '../actions/index'
 
 export const initialState = {
+    isLoggedIn: false,
     isLoading: false,
     plants: null,
     error: ''
