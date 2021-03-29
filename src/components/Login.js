@@ -3,63 +3,66 @@ import axios from 'axios'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom';
-
-
 export default function Login(props) {
-    const formState = {
-        username: '',
-        password: '',
-        phoneNumber: ''
-    }
+    import { connect } from 'react-redux'
 
-    const initialFormErrors = {
-        username: '',
-        password: '',
-        phoneNumber: ''
-    }
+    const Login = (props) => {
 
-    const initialDisabled = true;
+        const formState = {
+            username: '',
+            password: '',
+            phoneNumber: ''
+        }
 
-    const [form, setForm] = useState(formState);
-    const [formError, setFormError] = useState(initialFormErrors);
-    const [disabled, setDisabled] = useState(initialDisabled);
+        const initialFormErrors = {
+            username: '',
+            password: '',
+            phoneNumber: ''
+        }
 
-    const history = useHistory();
+        const initialDisabled = true;
 
-    const updateInput = (name, value) => {
+        const [form, setForm] = useState(formState);
+        const [formError, setFormError] = useState(initialFormErrors);
+        const [disabled, setDisabled] = useState(initialDisabled);
 
-        // yup.reach(schema, name)
-        //     .validate(value)
-        //     .then(() => {
-        //         setFormError({ ...formError, [name]: '' })
-        //     })
-        //     .catch((err) => {
-        //         setFormError({ ...formError, [name]: err.errors[0] })
-        //     })
+        const history = useHistory();
 
+        const updateInput = (name, value) => {
 
-        // setForm({ ...form, [name]: value })
-    }
-
-    const handleChange = (e) => {
-        e.preventDefault();
-        props.submitLogin(form);
-        history.push('/');
-    }
-
-    // useEffect(() => {
-    //     schema.isValid(form)
-    //         .then(valid => initialDisabled(!valid))
-    // }, [form])
+            // yup.reach(schema, name)
+            //     .validate(value)
+            //     .then(() => {
+            //         setFormError({ ...formError, [name]: '' })
+            //     })
+            //     .catch((err) => {
+            //         setFormError({ ...formError, [name]: err.errors[0] })
+            //     })
 
 
+            // setForm({ ...form, [name]: value })
+        }
 
-    return (
-        <Container text>
-            <Header>Login to your account</Header>
-            <Card fluid>
-                <Card.Content>
-                    <Form>
+        const handleChange = (e) => {
+            e.preventDefault();
+            props.submitLogin(form);
+            history.push('/');
+        }
+
+        // useEffect(() => {
+        //     schema.isValid(form)
+        //         .then(valid => initialDisabled(!valid))
+        // }, [form])
+
+
+
+        return (
+            <Container text>
+                <Header>Login to your account</Header>
+                <Card fluid>
+                    <Card.Content>
+                        <Form>
+<<<<<<< HEAD
                         <Form.Field>
                             <label>Username</label>
                             <input value={form.username}
@@ -82,9 +85,30 @@ export default function Login(props) {
                                 type="text" />
                         </Form.Field>
                         <Button primary>Login</Button>
+=======
+                    <Form.Field>
+                            <label>Username</label>
+                            <input />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Password</label>
+                            <input />
+                        </Form.Field>
+                        <Form.Field>
+                            <label>Phone Number</label>
+                            <input />
+                        </Form.Field>
+                        <Button loading={isLoading} primary>Login</Button>
+>>>>>>> 33d38302381c90efad8a638f763b34d63eee5599
                     </Form>
                 </Card.Content>
             </Card>
-        </Container>
+        </Container >
     )
 }
+const mapToStateProps = state => {
+    return {
+        isLoading: state.isLoading,
+    }
+}
+export default connect(mapToStateProps, {})(Login)
