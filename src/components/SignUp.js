@@ -12,44 +12,39 @@ export default function SignUp(){
     const [form, setForm] = useState(formState)
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setForm({
-            ...form,
-            [name]: value
+        
+    }
+
+    const login = e => {
+        e.preventDefault()
+        axios
+        .post(`https://tt-33-water-my-plants-backend.herokuapp.com/auth/register`, form)
+        .then(res => {
+            console.log(res)
+            localStorage.setItem('token', JSON.stringify(res.data.payload))
+        })
+        .catch(err => {
+            console.error(`Cannot login to server: ${err.message}`)
         })
     }
+    
     return (
         <Container text>
             <Header>Create an account</Header>
             <Card fluid>
                 <Card.Content>
-                    <Form>
+                    <Form onSubmit={login}>
                     <Form.Field>
                         <label>Username</label>
-                        <input 
-                            placeholder='' 
-                            name="username"
-                            value={form.username}
-                            onChange={handleChange}
-                        />
+                        <input />
                     </Form.Field>
                     <Form.Field>
                         <label>Password</label>
-                        <input 
-                            placeholder='' 
-                            name="password"
-                            value={form.password}
-                            onChange={handleChange}
-                        />
+                        <input />
                     </Form.Field>
                     <Form.Field>
                         <label>Phone Number</label>
-                        <input 
-                            placeholder='' 
-                            name="phoneNumber"
-                            value={form.phoneNumber}
-                            onChange={handleChange}
-                        />
+                        <input />
                     </Form.Field>
                     <Button primary>Register</Button>
                     </Form>

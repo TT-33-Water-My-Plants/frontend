@@ -11,11 +11,7 @@ export default function Login(){
     const [form, setForm] = useState(formState)
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setForm({
-            ...form,
-            [name]: value
-        })
+        
     }
 
     return (
@@ -26,30 +22,15 @@ export default function Login(){
                     <Form>
                     <Form.Field>
                         <label>Username</label>
-                        <input 
-                            placeholder='' 
-                            name="username"
-                            value={form.username}
-                            onChange={handleChange}
-                        />
+                        <input /> 
                     </Form.Field>
                     <Form.Field>
                         <label>Password</label>
-                        <input 
-                            placeholder='' 
-                            name="password"
-                            value={form.password}
-                            onChange={handleChange}
-                        />
+                        <input />
                     </Form.Field>
                     <Form.Field>
                         <label>Phone Number</label>
-                        <input 
-                            placeholder='' 
-                            name="phoneNumber"
-                            value={form.phoneNumber}
-                            onChange={handleChange}
-                        />
+                        <input />
                     </Form.Field>
                     <Button primary>Login</Button>
                     </Form>
