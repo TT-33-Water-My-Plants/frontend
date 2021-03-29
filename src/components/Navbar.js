@@ -21,9 +21,15 @@ const Navbar = () => {
                 </Menu.Item>
             </Link>
 
-            <Link to="login">
+            <Link to="/login">
                 <Menu.Item name='Sign In'>
                 Sign In
+                </Menu.Item>
+            </Link>
+
+            <Link to="/plants">
+                <Menu.Item name='Plants'>
+                Plants
                 </Menu.Item>
             </Link>
 
