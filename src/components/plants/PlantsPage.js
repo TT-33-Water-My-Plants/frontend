@@ -6,12 +6,16 @@ import { Container } from 'semantic-ui-react'
 const PlantsPage = (props) => {
     const { isLoading, plants, error } = props
     const [plantsList, setPlantsList] = useState([])
+    
     useEffect(() => {
-        axios
-        .get(`https://tt-33-water-my-plants.herokuapp.com/api/plants`, {headers: {'Access-Control-Allow-Origin': '*'}})
+       
+        fetch(`https://tt-33-water-my-plants.herokuapp.com/api/plants`)
         .then(res => {
-            console.log(res)
-            setPlantsList(res.data)
+            return res.json();
+        })
+        .then(data => {
+            console.log(data)
+            setPlantsList(data)
         })
         .catch(err => {
             console.error(`There was a problem fetching the plants: ${err.message}`)
