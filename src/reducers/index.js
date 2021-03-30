@@ -22,6 +22,7 @@ export const reducer = (state = initialState, action) => {
         case FETCH_PLANTS_SUCCESS: 
             return {
                 ...state,
+                isLoading: false,
                 plants: action.payload
             }
             

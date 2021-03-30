@@ -1,14 +1,16 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Button, Container, Icon } from 'semantic-ui-react'
+import { BrowserRouter, Route, useLocation } from 'react-router-dom'
 
 import { fetchPlants } from '../../actions/index'
 
 import PlantCard from './PlantCard'
+import PlantInfo from './PlantInfo'
 
 const PlantsPage = (props) => {
     const { isLoading, plants, error, fetchPlants } = props
+    const { pathname, key, url } = useLocation()
     
     useEffect(() => {
         fetchPlants()
@@ -20,7 +22,10 @@ const PlantsPage = (props) => {
             {
                 plants.map(plant => {
                     return (
-                        <PlantCard key={plant.nickname} plant={plant} />
+                        <BrowserRouter>
+                            <Route exact path={`${pathname}`} render={ props => <PlantCard {...props}  key={plant.nickname} plant={plant} />}  />
+                        </BrowserRouter>
+                        // <PlantCard key={plant.nickname} plant={plant} />
                     )
                 })
             }
