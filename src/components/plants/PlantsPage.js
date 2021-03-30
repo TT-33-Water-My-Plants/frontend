@@ -8,7 +8,7 @@ const PlantsPage = (props) => {
     const [plantsList, setPlantsList] = useState([])
     useEffect(() => {
         axios
-        .get(`https://tt-33-water-my-plants.herokuapp.com/api/plants`, {headers: {'Access-Control-Allow-Origin': '*'}})
+        .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
         .then(res => {
             console.log(res)
             setPlantsList(res.data)
