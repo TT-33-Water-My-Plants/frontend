@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import { connect } from 'react-redux'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import * as yup from 'yup';
 import signUpMechanics from './SignUpMechanics';
@@ -8,6 +9,12 @@ import signUpMechanics from './SignUpMechanics';
 
 export default function SignUp(props){
 
+<<<<<<< HEAD
+=======
+ const SignUp = (props) => {
+    const { isLoading } = props 
+
+>>>>>>> main
     const formState = {
         username: '',
         password: '',
@@ -68,11 +75,15 @@ export default function SignUp(props){
                     <Form onSubmit={login}>
                     <Form.Field>
                         <label>Username</label>
+<<<<<<< HEAD
                         <input
                             name='username'
                             value={form.username}
                             onChange={handleChange}
                              /> 
+=======
+                        <input  />
+>>>>>>> main
                     </Form.Field>
                     <Form.Field>
                         <label>Password</label>
@@ -90,10 +101,17 @@ export default function SignUp(props){
                             onChange={handleChange}
                              />
                     </Form.Field>
-                    <Button primary>Register</Button>
+                    <Button loading={isLoading} primary>Register</Button>
                     </Form>
                 </Card.Content>
             </Card>
         </Container>
     )
 }
+
+const mapToStateProps = state => {
+    return {
+      isLoading: state.isLoading,
+    }
+  }
+  export default connect(mapToStateProps, {})(SignUp)
