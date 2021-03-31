@@ -1,32 +1,34 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { Container } from 'semantic-ui-react'
+import { Button, Container, Icon } from 'semantic-ui-react'
+import { BrowserRouter, Route, useLocation } from 'react-router-dom'
+
+import { fetchPlants } from '../../actions/index'
+
+import PlantCard from './PlantCard'
+import PlantInfo from './PlantInfo'
 
 const PlantsPage = (props) => {
-    const { isLoading, plants, error } = props
-    const [plantsList, setPlantsList] = useState([])
+    const { isLoading, plants, error, fetchPlants } = props
+    const { pathname, key, url } = useLocation()
     
     useEffect(() => {
-        axios
-        .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
-
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            console.log(data)
-            setPlantsList(data)
-        })
-        .catch(err => {
-            console.error(`There was a problem fetching the plants: ${err.message}`)
-        })
-    },[])
+        fetchPlants()
+    },[fetchPlants])
 
     return (
         <Container>
-            <h1>HELLO from Plants Page</h1>
-
+            <Button primary>Add Plant</Button> 
+            {
+                plants.map(plant => {
+                    return (
+                        <BrowserRouter>
+                            <Route exact path={`${pathname}`} render={ props => <PlantCard {...props}  key={plant.nickname} plant={plant} />}  />
+                        </BrowserRouter>
+                        // <PlantCard key={plant.nickname} plant={plant} />
+                    )
+                })
+            }
         </Container>
     )
 }
@@ -38,4 +40,4 @@ const mapStateToProps = state => {
         error: state.error
     }
 }
-export default connect(mapStateToProps, {})(PlantsPage)
+export default connect(mapStateToProps, {fetchPlants})(PlantsPage)

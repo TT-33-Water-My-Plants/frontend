@@ -11,6 +11,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import PlantsPage from './components/plants/PlantsPage'
 
+
 const App = (props) => {
 const { isLoading, plants, error } = props
   return (
