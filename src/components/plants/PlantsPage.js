@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Button, Container, Icon } from 'semantic-ui-react'
-import { BrowserRouter, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Route, useLocation, Link } from 'react-router-dom'
 
 import { fetchPlants } from '../../actions/index'
 
 import PlantCard from './PlantCard'
-import PlantInfo from './PlantInfo'
+
 
 const PlantsPage = (props) => {
     const { isLoading, plants, error, fetchPlants } = props
@@ -20,12 +20,12 @@ const PlantsPage = (props) => {
         <Container>
             <Button primary>Add Plant</Button> 
             {
-                plants.map(plant => {
+                plants.map((plant, index) => {
                     return (
-                        <BrowserRouter>
-                            <Route exact path={`${pathname}`} render={ props => <PlantCard {...props}  key={plant.nickname} plant={plant} />}  />
-                        </BrowserRouter>
-                        // <PlantCard key={plant.nickname} plant={plant} />
+                        <Link key={plant.nickname} to={`/plants/${index}`}>
+                            <PlantCard  plant={plant} />
+                        </Link>
+                        
                     )
                 })
             }

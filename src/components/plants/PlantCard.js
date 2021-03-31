@@ -10,7 +10,6 @@ const PlantCard = (props) => {
     const { plant } = props
     return (
         <div>
-        <Link to={`${pathname}/${key}`}>
             <Card>
                 <Image src={plant.image} />
                 <Card.Content>
@@ -18,7 +17,6 @@ const PlantCard = (props) => {
                     <Card.Description>{plant.species}</Card.Description>
                 </Card.Content>
             </Card>
-        </Link>
         <Switch>
             <Route path={`${pathname}/${key}`} render={ props => <PlantInfo {...props} plant={plant} />} />
         </Switch>
