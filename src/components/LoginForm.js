@@ -56,8 +56,6 @@ export default function LoginForm(props) {
 
 // export default connect(mapToStateProps, {})(LoginForm)
 
-const Label = styled.label`
-margin: 20px;
 
-`
+
 

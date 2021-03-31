@@ -29,6 +29,19 @@ export default function Login(props) {
     const [formError, setFormError] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
 
+    const login = e => {
+        e.preventDefault()
+        axios
+            .post(`https://tt-33-water-my-plants-backend.herokuapp.com/auth/register`, form)
+            .then(res => {
+                console.log(res)
+                localStorage.setItem('token', JSON.stringify(res.data.payload))
+            })
+            .catch(err => {
+                console.error(`Cannot login to server: ${err.message}`)
+            })
+    }
+
     const history = useHistory();
 
     const inputChange = (name, value) => {
@@ -71,5 +84,3 @@ export default function Login(props) {
         </Container >
     )
 }
-
-
