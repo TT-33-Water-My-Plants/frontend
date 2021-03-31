@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import { Button, Card, Form } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-export default function LoginForm(props) {
-    const { change, submit, disabled, errors, values } = props;
+function LoginForm(props) {
+    const { change, submit, disabled, errors, values, isLoading } = props;
 
     const onChange = (event) => {
         const { name, value } = event.target;
@@ -48,13 +48,15 @@ export default function LoginForm(props) {
     )
 }
 
-// const mapToStateProps = state => {
-//     return {
-//         isLoading: state.isLoading,
-//     }
-// }
+const mapToStateProps = state => {
+    return {
+        isLoading: state.isLoading,
+    }
+}
 
-// export default connect(mapToStateProps, {})(LoginForm)
+export default connect(mapToStateProps, {})(LoginForm)
+
+
 
 
 

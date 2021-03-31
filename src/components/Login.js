@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import * as yup from 'yup'
-import formSchema from '../formSchema'
+import formSchema from '../validation/formSchema'
 import { useHistory } from 'react-router-dom';
 import LoginForm from './LoginForm'
 
 
 export default function Login(props) {
-
 
     const formState = {
         username: '',
@@ -29,18 +28,6 @@ export default function Login(props) {
     const [formError, setFormError] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
 
-    const login = e => {
-        e.preventDefault()
-        axios
-            .post(`https://tt-33-water-my-plants-backend.herokuapp.com/auth/register`, form)
-            .then(res => {
-                console.log(res)
-                localStorage.setItem('token', JSON.stringify(res.data.payload))
-            })
-            .catch(err => {
-                console.error(`Cannot login to server: ${err.message}`)
-            })
-    }
 
     const history = useHistory();
 
@@ -68,7 +55,6 @@ export default function Login(props) {
         formSchema.isValid(form)
             .then(valid => setDisabled(!valid))
     }, [form])
-
 
 
     return (
