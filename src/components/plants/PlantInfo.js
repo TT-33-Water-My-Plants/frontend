@@ -1,8 +1,17 @@
 import React from 'react'
 
-export default function PlantInfo(props){
-    const { plant } = props
+export default function PlantInfo({match, location}){
+    // const { params: { plantsId } } = match
     return (
-        <h1>{plant.nickname}</h1>
+        <>
+        <p>
+            <strong>Match Props: </strong>
+            <code>{JSON.stringify(match, null, 2)}</code>
+        </p>
+        <p>
+            <strong>Location Props: </strong>
+            <code>{JSON.stringify(location, null, 2)}</code>
+        </p>
+    </>
     )
 }

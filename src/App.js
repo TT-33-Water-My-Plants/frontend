@@ -9,7 +9,7 @@ import Navbar from './components/Navbar'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import PlantsPage from './components/plants/PlantsPage'
-import PlantInfo from './components/plants/PlantsPage'
+import PlantInfo from './components/plants/PlantInfo'
 
 
 const App = (props) => {
@@ -22,8 +22,8 @@ const { isLoading, plants, error } = props
            <Route exact path='/' component={Home} />
            <Route path='/signup' component={SignUp} />
            <Route path='/login' component={Login} />
-           <Route path='/plants' component={PlantsPage} />
-           <Route path='/plants/:plantId' component={PlantInfo} />
+           <Route exact path='/plants' component={PlantsPage} />
+           <Route exact path='/plants/:plantsId' component={PlantInfo} />
         </Switch>
       </Container>
     </div>

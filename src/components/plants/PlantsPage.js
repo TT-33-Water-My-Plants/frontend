@@ -22,8 +22,8 @@ const PlantsPage = (props) => {
             {
                 plants.map((plant, index) => {
                     return (
-                        <Link key={plant.nickname} to={`/plants/${index}`}>
-                            <PlantCard  plant={plant} />
+                        <Link key={index} to={`/plants/${index + 1}`}>
+                            <PlantCard plant={plant} />
                         </Link>
                         
                     )

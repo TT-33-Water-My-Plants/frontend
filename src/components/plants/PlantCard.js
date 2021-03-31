@@ -17,9 +17,6 @@ const PlantCard = (props) => {
                     <Card.Description>{plant.species}</Card.Description>
                 </Card.Content>
             </Card>
-        <Switch>
-            <Route path={`${pathname}/${key}`} render={ props => <PlantInfo {...props} plant={plant} />} />
-        </Switch>
         </div>
     )
         

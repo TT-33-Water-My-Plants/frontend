@@ -16,6 +16,7 @@ export const fetchPlants = () => {
       axios
       .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
       .then(res => {
+         console.log(res.data)
          dispatch({type: FETCH_PLANTS_SUCCESS, payload: res.data})
       })
       .catch(err => {
