@@ -1,18 +1,45 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import * as yup from 'yup';
+import signUpMechanics from './SignUpMechanics';
 
-export default function SignUp(){
+
+
+export default function SignUp(props){
+
     const formState = {
         username: '',
         password: '',
         phoneNumber: ''
     }
 
-    const [form, setForm] = useState(formState)
+    const formStateErrors = {
+        username: '',
+        password: '',
+        phoneNumber: '',
+    }
 
-    const handleChange = (e) => {
-        
+    const initDisabled = true;
+
+    const [form, setForm] = useState(formState);
+    const [formErrors, setFormErrors] = useState(formStateErrors);
+    const [disabled, isDisabled] = useState(initDisabled);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        yup.reach(signUpMechanics, name)
+        .validate(value)
+        .then(() => {
+            setFormErrors({...formErrors, [name]: ''})
+        })
+        .catch(err => {
+            setFormErrors({...formErrors, [name]: err.errors[0]})
+        })
+        setForm({
+            ...form,
+            [name]: value
+        })
     }
 
     const login = e => {
@@ -27,7 +54,12 @@ export default function SignUp(){
             console.error(`Cannot login to server: ${err.message}`)
         })
     }
-    
+
+    // useEffect(() => {
+    //     signUpMechanics.isValid(form).then(valid => isDisabled(!valid))
+    // }, [form])
+
+
     return (
         <Container text>
             <Header>Create an account</Header>
@@ -36,15 +68,27 @@ export default function SignUp(){
                     <Form onSubmit={login}>
                     <Form.Field>
                         <label>Username</label>
-                        <input />
+                        <input
+                            name='username'
+                            value={form.username}
+                            onChange={handleChange}
+                             /> 
                     </Form.Field>
                     <Form.Field>
                         <label>Password</label>
-                        <input />
+                        <input 
+                            name='password'
+                            value={form.password}
+                            onChange={handleChange}
+                            />
                     </Form.Field>
                     <Form.Field>
                         <label>Phone Number</label>
-                        <input />
+                        <input
+                            name='phoneNumber'
+                            value={form.phoneNumber}
+                            onChange={handleChange}
+                             />
                     </Form.Field>
                     <Button primary>Register</Button>
                     </Form>
