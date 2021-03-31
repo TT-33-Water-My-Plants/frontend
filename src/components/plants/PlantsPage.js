@@ -22,7 +22,7 @@ const PlantsPage = (props) => {
             {
                 plants.map((plant, index) => {
                     return (
-                        <Link key={index} to={`/plants/${index + 1}`}>
+                        <Link key={index} to={`/plants/${plant.plant_id}`}>
                             <PlantCard plant={plant} />
                         </Link>
                         

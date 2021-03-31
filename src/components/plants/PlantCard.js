@@ -5,8 +5,6 @@ import PlantInfo from './PlantInfo'
 
 
 const PlantCard = (props) => {
-    const { pathname, key } = useLocation()
-
     const { plant } = props
     return (
         <div>
@@ -19,7 +17,5 @@ const PlantCard = (props) => {
             </Card>
         </div>
     )
-        
-        
 }
 export default PlantCard
