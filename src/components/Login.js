@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Container, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import * as yup from 'yup'
+// import * as yup from 'yup'
 import formSchema from '../validation/formSchema'
 import { useHistory } from 'react-router-dom';
 import LoginForm from './LoginForm'
@@ -33,14 +33,14 @@ export default function Login(props) {
 
     const inputChange = (name, value) => {
 
-        yup.reach(formSchema, name)
-            .validate(value)
-            .then(() => {
-                setFormError({ ...formError, [name]: '' })
-            })
-            .catch((err) => {
-                setFormError({ ...formError, [name]: err.errors[0] })
-            })
+        // yup.reach(formSchema, name)
+        //     .validate(value)
+        //     .then(() => {
+        //         setFormError({ ...formError, [name]: '' })
+        //     })
+        //     .catch((err) => {
+        //         setFormError({ ...formError, [name]: err.errors[0] })
+        //     })
 
 
         setForm({ ...form, [name]: value })

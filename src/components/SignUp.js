@@ -7,14 +7,11 @@ import signUpMechanics from './SignUpMechanics';
 
 
 
-export default function SignUp(props){
 
-<<<<<<< HEAD
-=======
  const SignUp = (props) => {
     const { isLoading } = props 
 
->>>>>>> main
+
     const formState = {
         username: '',
         password: '',
@@ -75,15 +72,11 @@ export default function SignUp(props){
                     <Form onSubmit={login}>
                     <Form.Field>
                         <label>Username</label>
-<<<<<<< HEAD
                         <input
                             name='username'
                             value={form.username}
                             onChange={handleChange}
                              /> 
-=======
-                        <input  />
->>>>>>> main
                     </Form.Field>
                     <Form.Field>
                         <label>Password</label>
