@@ -8,8 +8,9 @@ const PlantsPage = (props) => {
     const [plantsList, setPlantsList] = useState([])
     
     useEffect(() => {
-       
-        fetch(`https://tt-33-water-my-plants.herokuapp.com/api/plants`)
+        axios
+        .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
+
         .then(res => {
             return res.json();
         })
