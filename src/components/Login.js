@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import * as yup from 'yup'
-import formSchema from '../formSchema'
+import formSchema from '../validation/formSchema'
 import { useHistory } from 'react-router-dom';
 import LoginForm from './LoginForm'
 
 
 export default function Login(props) {
-
 
     const formState = {
         username: '',
@@ -28,6 +27,7 @@ export default function Login(props) {
     const [form, setForm] = useState(formState);
     const [formError, setFormError] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
+
 
     const history = useHistory();
 
@@ -55,7 +55,6 @@ export default function Login(props) {
         formSchema.isValid(form)
             .then(valid => setDisabled(!valid))
     }, [form])
-
 
 
     return (
