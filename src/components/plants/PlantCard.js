@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link, useLocation, Switch, Route} from 'react-router-dom'
 import { Card, Image } from 'semantic-ui-react'
-import PlantInfo from './PlantInfo'
 
 
 const PlantCard = (props) => {

@@ -12,8 +12,7 @@ import PlantsPage from './components/plants/PlantsPage'
 import PlantInfo from './components/plants/PlantInfo'
 
 
-const App = (props) => {
-const { isLoading, plants, error } = props
+const App = () => {
   return (
     <div className="App">
       <Navbar />
