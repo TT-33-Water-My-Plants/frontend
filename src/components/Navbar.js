@@ -2,6 +2,7 @@ import React, { Children, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Image, Container } from 'semantic-ui-react'
+import { logout } from '../actions/'
 
 const Navbar = (props) => {
     const [active, setActive] = useState('')
@@ -36,6 +37,10 @@ const Navbar = (props) => {
                 </Menu.Item>
             </Link>
 
+            {isLoggedIn === false ? null : <Menu.Item name='Logout' onClick={() => props.logout()}>
+                Logout
+            </Menu.Item>}
+
         </Container>
       </Menu>
     )
@@ -47,4 +52,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{})(Navbar)
+export default connect(mapStateToProps,{logout})(Navbar)

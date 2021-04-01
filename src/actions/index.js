@@ -5,6 +5,7 @@ export const TEST_CLICK = "TEST_CLICK";
 export const FETCH_PLANTS_START = "FETCH_PLANTS_START";
 export const FETCH_PLANTS_SUCCESS = "FETCH_PLANTS_SUCCESS";
 export const LOGIN_SUCCESS = "LOGIN SUCCESS";
+export const LOGOUT = "LOGOUT";
 
 //Tester
 export const testClick = () => {
@@ -31,3 +32,9 @@ export const login = () => {
       dispatch({type: LOGIN_SUCCESS, payload: {isLoggedIn: true}});
    };
 };
+
+export const logout = () => {
+   return (dispatch) => {
+      dispatch({type: LOGOUT})
+   }
+}

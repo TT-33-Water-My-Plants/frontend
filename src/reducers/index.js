@@ -1,4 +1,4 @@
-import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, LOGIN_SUCCESS } from '../actions/index'
+import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, LOGIN_SUCCESS, LOGOUT } from '../actions/index'
 
 export const initialState = {
     isLoggedIn: false,
@@ -30,6 +30,13 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isLoggedIn: action.payload.isLoggedIn
+            }
+
+        case LOGOUT:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                isLoggedIn: false
             }
             
          default:
