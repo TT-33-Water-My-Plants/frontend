@@ -34,13 +34,6 @@ export default function LoginForm(props) {
                             name="password"
                             type="text" />
                     </Form.Field>
-                    <Form.Field>
-                        <label>Phone Number</label>
-                        <input value={values.phoneNumber}
-                            onChange={onChange}
-                            name="phoneNumber"
-                            type="text" />
-                    </Form.Field>
                     <Button disabled={disabled}>Login</Button>
                 </Form>
             </Card.Content>

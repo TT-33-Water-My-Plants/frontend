@@ -1,4 +1,7 @@
-import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, UPDATE_PLANTS_START, UPDATE_PLANTS_SUCCESS } from '../actions/index'
+
+import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, UPDATE_PLANTS_START, UPDATE_PLANTS_SUCCESS, LOGIN_SUCCESS, LOGOUT} from '../actions/index'
+
+
 
 export const initialState = {
     buttonLoader: false,
@@ -27,6 +30,7 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 plants: action.payload
             }
+
         case UPDATE_PLANTS_START:
             return {
                 ...state,
@@ -40,8 +44,22 @@ export const reducer = (state = initialState, action) => {
                 updating: action.payload
             }
      
+
             
-        
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: action.payload.isLoggedIn
+            }
+
+        case LOGOUT:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                isLoggedIn: false
+            }
+
+            
          default:
              return state
     }

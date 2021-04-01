@@ -46,7 +46,7 @@ import signUpMechanics from './SignUpMechanics';
         })
     }
 
-    const login = e => {
+    const signup = e => {
         e.preventDefault()
         axios
         .post(`https://tt-33-water-my-plants-backend.herokuapp.com/auth/register`, form)
@@ -69,7 +69,7 @@ import signUpMechanics from './SignUpMechanics';
             <Header>Create an account</Header>
             <Card fluid>
                 <Card.Content>
-                    <Form onSubmit={login}>
+                    <Form onSubmit={signup}>
                     <Form.Field>
                         <label>Username</label>
                         <input

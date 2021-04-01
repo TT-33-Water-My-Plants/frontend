@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { Children, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Image, Container } from 'semantic-ui-react'
+import { logout } from '../actions/'
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [active, setActive] = useState('')
     const handleClick = (e, {name}) => setActive(active(name))
+
+    const { isLoggedIn } = props;
+
     return (
         <Menu>
         <Container textAlign="right" >
@@ -15,17 +19,17 @@ const Navbar = () => {
                 </Menu.Item>
             </Link>
 
-            <Link to='/signup'>
+            {isLoggedIn === true ? null : <Link to='/signup'>
                 <Menu.Item name='Sign Up'>
                 Sign Up 
                 </Menu.Item>
-            </Link>
+            </Link>}
 
-            <Link to="/login">
+            {isLoggedIn === true ? null : <Link to="/login">
                 <Menu.Item name='Sign In'>
                 Sign In
                 </Menu.Item>
-            </Link>
+            </Link>}
 
             <Link to="/plants">
                 <Menu.Item name='Plants'>
@@ -33,8 +37,19 @@ const Navbar = () => {
                 </Menu.Item>
             </Link>
 
+            {isLoggedIn === false ? null : <Menu.Item name='Logout' onClick={() => props.logout()}>
+                Logout
+            </Menu.Item>}
+
         </Container>
       </Menu>
     )
 }
-export default connect(null,{})(Navbar)
+
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.isLoggedIn
+    }
+}
+
+export default connect(mapStateToProps,{logout})(Navbar)
