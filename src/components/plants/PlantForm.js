@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router'
 import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import { editPlants } from '../../actions/index'
 
 const PlantForm = (props) => {
     const { editing, setEditing, updating, plantsId, plant, buttonLoader } = props
-    const [form, setForm] = useState({nickname: '', species: '', h2oFrequency: ''})
+    const [form, setForm] = useState({nickname: '', species: '', h2oFrequency: '', image: ''})
 
     const handleChange = e => {
         const { name, value } = e.target
@@ -15,12 +16,21 @@ const PlantForm = (props) => {
         })
     }
 
+    const history = useHistory()
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.editPlants(plantsId, form)
+        setTimeout(() => {
+            history.push('/plants')
+        }, 700)
+    }
+
     return (
     <Container style={{padding: '2rem', display: editing ? 'block' : 'none'}}>
         <Header>Update{}</Header>
             <Card fluid >
                 <Card.Content>
-                    <Form onSubmit={editPlants(plantsId)}>
+                    <Form onSubmit={handleSubmit}>
                     <Form.Field>
                         <label>Name</label>
                         <input
@@ -36,6 +46,14 @@ const PlantForm = (props) => {
                             name='species'
                             placeholder={plant.species}
                             value={form.species}
+                            onChange={handleChange}
+                            />
+                    </Form.Field>
+                    <Form.Field>
+                        <label>Image (URL) </label>
+                        <input 
+                            name='image'
+                            value={form.image}
                             onChange={handleChange}
                             />
                     </Form.Field>

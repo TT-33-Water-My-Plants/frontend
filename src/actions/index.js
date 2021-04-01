@@ -30,16 +30,15 @@ export const fetchPlants = () => {
 }
 
 //U P D A T E  
-export const editPlants = (id) => {
-   return (dispatch) => {
+export const editPlants = (id, data) => dispatch => {
       dispatch({type: UPDATE_PLANTS_START})
       axios
-      .put(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`)
+      .put(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`, data)
       .then(res => {
          dispatch({type: UPDATE_PLANTS_SUCCESS, payload: res.data})
       })
       .catch(err => {
          console.error(`There was a problem retrieving plant data from server: ${err.message}`)
       })
-   }
+   
 }
