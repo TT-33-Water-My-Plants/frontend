@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Container, Header } from 'semantic-ui-react'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux' // eslint-disable-line
 import * as yup from 'yup'
 import formSchema from '../validation/formSchema'
 import { useHistory } from 'react-router-dom';
@@ -12,14 +12,12 @@ export default function Login(props) {
 
     const formState = {
         username: '',
-        password: '',
-        phoneNumber: ''
+        password: ''
     }
 
     const initialFormErrors = {
         username: '',
-        password: '',
-        phoneNumber: ''
+        password: ''
     }
 
     const initialDisabled = true;
