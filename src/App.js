@@ -24,7 +24,7 @@ const App = () => {
            <Route path='/signup' component={SignUp} />
            <Route path='/login' component={Login} />
            <ProtectedRoute exact path='/plants' component={PlantsPage} />
-           <ProtectedRoute exact path='/plants/:plantsId' component={PlantInfo} />
+           <Route exact path='/plants/:plantsId' component={PlantInfo} /> {/*PrivateRoute wasn't passing needed params. Keep it a regular route for now.*/}
         </Switch>
       </Container>
     </div>

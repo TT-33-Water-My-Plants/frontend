@@ -16,13 +16,14 @@ const PlantsPage = (props) => {
     },[fetchPlants])
 
     return (
-        <Container >
+        
+        <Container>
             <Button primary>Add Plant</Button> 
             {
-                plants.map((plant, index) => {
+                plants.map((plant) => {
                     return (
                         <>
-                        <Link key={index} to={`/plants/${plant.plant_id}`}>
+                        <Link key={plant.plant_id} to={`/plants/${plant.plant_id}`}>
                             <PlantCard plant={plant} />
                         </Link>
                         <br></br>
@@ -33,6 +34,7 @@ const PlantsPage = (props) => {
             }
         </Container>
     )
+    
 }
 
 const mapStateToProps = state => {

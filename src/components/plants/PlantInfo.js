@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useParams } from 'react'
 import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 
@@ -24,7 +24,7 @@ const StyledMain = styled.section`
 `
 
 export default function PlantInfo({match}){
-    const { params: { plantsId } } = match
+    const { params: {plantsId} } = match
     const [plant, setPlant] = useState([])
     const [editing, setEditing] = useState(false)
 
