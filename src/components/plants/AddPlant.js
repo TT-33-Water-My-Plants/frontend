@@ -1,17 +1,37 @@
 import React, { useState } from 'react'
-import { Button, Card, Form, Label } from 'semantic-ui-react'
+import { Button, Card, Container, Form, Label } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router'
+import { addPlants } from '../../actions/index'
 
-const AddPlant = () => {
+const AddPlant = (props) => {
+    
     const [form, setForm] = useState({nickname: '', species: '', h2oFrequency: '', image: ''})
-    const handleChange = () => {
 
+    const history = useHistory()
+
+    const handleChange = e => {
+        const { name, value } = e.target
+        setForm({
+            ...form,
+            [name]: value
+        })
     }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        props.addPlants(form)
+        setTimeout(() => {
+            history.push('/plants')
+        }, 700)
+    }
+
+
     return (
-        <>
+        <Container>
         <Card fluid>
             <Card.Content>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Field>
                         <Label>Name of Plant</Label>
                         <input 
@@ -36,7 +56,7 @@ const AddPlant = () => {
                     <Form.Field>
                         <Label>Water frequency (hours) </Label>
                         <input 
-                            name="h2Frequency"
+                            name="h2oFrequency"
                             value={form.h2oFrequency}
                             onChange={handleChange}/>
                     </Form.Field>
@@ -44,8 +64,16 @@ const AddPlant = () => {
                 </Form>
             </Card.Content>
         </Card>
-        <Button></Button>
-        </>
+        <Button color="red" onClick={() => history.push('/plants')}>Cancel</Button>
+        </Container> 
     )
 }
-export default connect(null, {})(AddPlant)
+
+const mapToStateProps = state => {
+    return {
+        buttonLoader: state.false,
+        adding: state.adding,
+        error: state.error
+    }
+}
+export default connect(mapToStateProps, {addPlants})(AddPlant)
