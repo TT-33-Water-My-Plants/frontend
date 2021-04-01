@@ -4,11 +4,16 @@ export const TEST_CLICK = "TEST_CLICK"
 export const FETCH_PLANTS_START = "FETCH_PLANTS_START"
 export const FETCH_PLANTS_SUCCESS = "FETCH_PLANTS_SUCCESS"
 
+export const UPDATE_PLANTS_START = "UPDATE_PLANTS_START"
+export const UPDATE_PLANTS_SUCCESS = "UPDATE_PLANTS_SUCCESS"
+ 
+
 //Tester
 export const testClick = () => {
    return {type: TEST_CLICK}
 }
 
+//R E A D
 //Axios call to server for plant data (Will dynamically create Plant Cards)
 export const fetchPlants = () => {
    return (dispatch) => {
@@ -17,6 +22,21 @@ export const fetchPlants = () => {
       .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
       .then(res => {
          dispatch({type: FETCH_PLANTS_SUCCESS, payload: res.data})
+      })
+      .catch(err => {
+         console.error(`There was a problem retrieving plant data from server: ${err.message}`)
+      })
+   }
+}
+
+//U P D A T E  
+export const editPlants = (id) => {
+   return (dispatch) => {
+      dispatch({type: UPDATE_PLANTS_START})
+      axios
+      .put(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`)
+      .then(res => {
+         dispatch({type: UPDATE_PLANTS_SUCCESS, payload: res.data})
       })
       .catch(err => {
          console.error(`There was a problem retrieving plant data from server: ${err.message}`)

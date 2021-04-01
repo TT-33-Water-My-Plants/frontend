@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Container, Image } from 'semantic-ui-react'
+import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 
+import PlantForm from './PlantForm'
+
 const StyledMain = styled.section`
-    margin-top: 7rem;
+    margin: 7rem 0;
     display: flex;
     justify-content: space-evenly;
     box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.4);
@@ -24,7 +26,7 @@ const StyledMain = styled.section`
 export default function PlantInfo({match}){
     const { params: { plantsId } } = match
     const [plant, setPlant] = useState([])
-    const [editing, isEditing] = useState(false)
+    const [editing, setEditing] = useState(false)
 
     useEffect(() => {
         axios
@@ -49,6 +51,16 @@ export default function PlantInfo({match}){
                     <p>{plant.h2oFrequency}</p>
                 </Container>
             </StyledMain>
+            <Button
+                onClick={() => setEditing(!editing)} 
+                color="green" style={{fontSize: '1.2rem', display: editing ? 'none' : 'block'}}
+             >Edit Plant</Button>
+             <PlantForm 
+                editing={editing} 
+                setEditing={setEditing} 
+                plant={plant}
+                plantsId={plantsId}
+             />
        </Container>
     )
 }
