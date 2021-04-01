@@ -48,7 +48,16 @@ export default function Login(props) {
 
     const formSubmit = (e) => {
         e.preventDefault();
-        history.push('/');
+
+        axios.post('https://tt-33-water-my-plants-backend.herokuapp.com/auth/login', form)
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.token);
+                history.push('/');
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     useEffect(() => {
