@@ -7,8 +7,10 @@ import formSchema from '../validation/formSchema'
 import { useHistory } from 'react-router-dom';
 import LoginForm from './LoginForm'
 
+import { login } from '../actions';
 
-export default function Login(props) {
+
+function Login(props) {
 
     const formState = {
         username: '',
@@ -49,8 +51,8 @@ export default function Login(props) {
 
         axios.post('https://tt-33-water-my-plants-backend.herokuapp.com/auth/login', form)
             .then(res => {
-                console.log(res);
                 localStorage.setItem('token', res.data.token);
+                props.login();
                 history.push('/');
             })
             .catch(err => {
@@ -77,3 +79,5 @@ export default function Login(props) {
         </Container >
     )
 }
+
+export default connect(null, {login})(Login)
