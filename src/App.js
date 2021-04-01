@@ -11,6 +11,8 @@ import Login from './components/Login'
 import PlantsPage from './components/plants/PlantsPage'
 import PlantInfo from './components/plants/PlantInfo'
 
+import ProtectedRoute from './utils/protectedRoute';
+
 
 const App = () => {
   return (
@@ -21,8 +23,8 @@ const App = () => {
            <Route exact path='/' component={Home} />
            <Route path='/signup' component={SignUp} />
            <Route path='/login' component={Login} />
-           <Route exact path='/plants' component={PlantsPage} />
-           <Route exact path='/plants/:plantsId' component={PlantInfo} />
+           <ProtectedRoute exact path='/plants' component={PlantsPage} />
+           <ProtectedRoute exact path='/plants/:plantsId' component={PlantInfo} />
         </Switch>
       </Container>
     </div>
