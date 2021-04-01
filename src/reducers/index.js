@@ -1,4 +1,4 @@
-import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START } from '../actions/index'
+import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, LOGIN_SUCCESS } from '../actions/index'
 
 export const initialState = {
     isLoggedIn: false,
@@ -26,9 +26,12 @@ export const reducer = (state = initialState, action) => {
                 plants: action.payload
             }
             
-     
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: action.payload.isLoggedIn
+            }
             
-        
          default:
              return state
     }
