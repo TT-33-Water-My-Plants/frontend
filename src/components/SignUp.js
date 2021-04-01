@@ -59,9 +59,9 @@ import signUpMechanics from './SignUpMechanics';
         })
     }
 
-    // useEffect(() => {
-    //     signUpMechanics.isValid(form).then(valid => isDisabled(!valid))
-    // }, [form])
+    useEffect(() => {
+        signUpMechanics.isValid(form).then(valid => isDisabled(!valid))
+    }, [form])
 
 
     return (
