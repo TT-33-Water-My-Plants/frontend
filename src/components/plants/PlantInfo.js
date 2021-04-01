@@ -24,6 +24,7 @@ const StyledMain = styled.section`
 export default function PlantInfo({match}){
     const { params: { plantsId } } = match
     const [plant, setPlant] = useState([])
+    const [editing, isEditing] = useState(false)
 
     useEffect(() => {
         axios
@@ -37,15 +38,17 @@ export default function PlantInfo({match}){
     },[])
 
     return (
-        <StyledMain>
-            <Container>
-                <Image src={plant.image} />
-            </Container>
-            <Container style={{paddingLeft: '3rem'}}>
-                <h1>{plant.nickname}</h1>
-                <p class="species">{plant.species}</p>
-                <p>{plant.h2oFrequency}</p>
-            </Container>
-        </StyledMain>
+        <Container>
+            <StyledMain>
+                <Container>
+                    <Image src={plant.image} />
+                </Container>
+                <Container style={{paddingLeft: '3rem'}}>
+                    <h1>{plant.nickname}</h1>
+                    <p class="species">{plant.species}</p>
+                    <p>{plant.h2oFrequency}</p>
+                </Container>
+            </StyledMain>
+       </Container>
     )
 }
