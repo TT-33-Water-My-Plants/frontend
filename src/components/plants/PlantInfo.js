@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState, useParams } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
@@ -31,6 +32,9 @@ const StyledMain = styled.section`
     const [plant, setPlant] = useState([])
     const [editing, setEditing] = useState(false)
 
+    const history = useHistory()
+    console.log(history)
+
 
     useEffect(() => {
         axios
@@ -46,7 +50,7 @@ const StyledMain = styled.section`
     const handleDelete = () => {
         console.log('delete is being handled')
         deletePlant(plantsId)
-        
+        history.push('/plants')
     }
 
     return (
@@ -66,8 +70,8 @@ const StyledMain = styled.section`
                 primary style={{fontSize: '1.2rem', display: editing ? 'none' : 'block'}}
              >Edit Plant</Button>
              <br></br>
-             {/* {user_id === plant.user_id &&  */}
-                <Button color='red' style={{fontSize: '1.2rem'}} onClick={handleDelete}>Delete</Button> 
+             {user_id === plant.user_id && 
+                <Button color='red' style={{fontSize: '1.2rem'}} onClick={handleDelete}>Delete</Button> }
              <PlantForm 
                 editing={editing} 
                 setEditing={setEditing} 
