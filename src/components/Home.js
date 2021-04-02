@@ -9,17 +9,21 @@ import { connect } from 'react-redux'
 import Banner from './Banner'
 
 const StyledMain = styled.main`
-    
     display: flex;
+    flex-direction: column;
    
     
 `
 
 const Home = (props) => {
-    const { testClick, isLoading } = props
     
     return (
         <StyledMain>
+            <Container>
+                <Card fluid>
+                    <Banner/>
+                </Card>
+            </Container>
             <Card style={{width: '50%'}}>
             <Container>
                 <section className='intro'>
@@ -46,12 +50,9 @@ const Home = (props) => {
                 </secion>
             </Container>
             </Card>
-            <Container>
-                <Card>
-                    <Banner/>
-                </Card>
-            </Container>
+            
         </StyledMain>
+        
     )
 }
 
