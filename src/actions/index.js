@@ -12,7 +12,9 @@ export const UPDATE_PLANTS_SUCCESS = "UPDATE_PLANTS_SUCCESS"
 
 export const ADD_PLANTS_START = "ADD_PLANTS_START"
 export const ADD_PLANTS_SUCCESS = "ADD_PLANTS_SUCCESS"
- 
+
+export const DELETE_PLANT= "DELETE_PLANT"
+
 
 //Tester
 export const testClick = () => {
@@ -76,4 +78,11 @@ export const editPlants = (id, data) => dispatch => {
          console.error(`There was a problem retrieving plant data from server: ${err.message}`)
       })
    
+}
+
+//D E L E T E
+export const deletePlant = (data) => {
+   return (dispatch) => {
+      dispatch({type: DELETE_PLANT})
+   }
 }

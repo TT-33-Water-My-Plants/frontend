@@ -1,5 +1,15 @@
-
-import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, UPDATE_PLANTS_START, UPDATE_PLANTS_SUCCESS, LOGIN_SUCCESS, LOGOUT, ADD_PLANTS_START, ADD_PLANTS_SUCCESS} from '../actions/index'
+import { 
+    TEST_CLICK, 
+    FETCH_PLANTS_SUCCESS, 
+    FETCH_PLANTS_START, 
+    UPDATE_PLANTS_START, 
+    UPDATE_PLANTS_SUCCESS, 
+    LOGIN_SUCCESS, 
+    LOGOUT, 
+    ADD_PLANTS_START, 
+    ADD_PLANTS_SUCCESS, 
+    DELETE_PLANT
+} from '../actions/index'
 
 
 
@@ -59,7 +69,13 @@ export const reducer = (state = initialState, action) => {
                 adding: action.payload
             }
 
-            
+        case DELETE_PLANT:
+            console.log('successful delete')
+            return ({
+                    ...state,
+                    // plants: state.plants.filter(plant => plant.id !== action.payload)
+                })
+
         case LOGIN_SUCCESS:
             return {
                 ...state,

@@ -4,6 +4,8 @@ import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
+import { deletePlant } from '../../actions/index'
+
 import PlantForm from './PlantForm'
 
 const StyledMain = styled.section`
@@ -24,10 +26,11 @@ const StyledMain = styled.section`
 
 `
 
- const PlantInfo = ({match, user_id}) => {
+ const PlantInfo = ({match, user_id, deletePlant}) => {
     const { params: {plantsId} } = match
     const [plant, setPlant] = useState([])
     const [editing, setEditing] = useState(false)
+
 
     useEffect(() => {
         axios
@@ -39,6 +42,12 @@ const StyledMain = styled.section`
             console.error(`There was a problem retrieving plant data: ${err}`)
         })
     },[])
+
+    const handleDelete = () => {
+        console.log('delete is being handled')
+        deletePlant()
+        
+    }
 
     return (
         <Container>
@@ -57,7 +66,8 @@ const StyledMain = styled.section`
                 primary style={{fontSize: '1.2rem', display: editing ? 'none' : 'block'}}
              >Edit Plant</Button>
              <br></br>
-             {user_id === plant.user_id && <Button color='red' style={{fontSize: '1.2rem'}}>Delete</Button> }
+             {/* {user_id === plant.user_id &&  */}
+                <Button color='red' style={{fontSize: '1.2rem'}} onClick={handleDelete}>Delete</Button> 
              <PlantForm 
                 editing={editing} 
                 setEditing={setEditing} 
@@ -69,7 +79,8 @@ const StyledMain = styled.section`
 }
 const mapToStateProps = state => {
     return {
-        user_id: state.currentUser.user_id
+        user_id: state.currentUser.user_id,
+        plants: state.plants
     }
 }
-export default connect(mapToStateProps, {})(PlantInfo)
+export default connect(mapToStateProps, {deletePlant})(PlantInfo)

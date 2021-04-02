@@ -64,7 +64,7 @@ const PlantForm = (props) => {
                             placeholder={plant.h2oFrequency}
                             value={form.h2oFrequency}
                             onChange={handleChange}
-                             />
+                        />
                     </Form.Field>
                     <Button 
                     color='green'
