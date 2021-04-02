@@ -9,14 +9,14 @@
   Within the Web app you can: 
   <ul>
     <li><b>Authorization & Authentication: </b>Sign in or Sign Out</li>
-    <li><b>Create: </b>Create new plant cards</li>
-    <li><b>Read: </b>Get a list of the current card available on the dashboard</li>
+    <li><b>Create: </b>Create new plant card</li>
+    <li><b>Read: </b>Get a list of the current plants available on the dashboard</li>
     <li><b>Update: </b>Update a plant card's information</li>
     <li><b>Delete: </b>Delete cards that YOU create</li>
   </ul>
 </p>
 
-![demo](src/assets/demo.png)
+![demo](src/assets/demo2.png)
 
 ## 🚨 Forking this repo (please read!)
 
