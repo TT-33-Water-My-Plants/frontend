@@ -9,4 +9,4 @@
   Etc
 </p>
 
-![demo](src\assets\demo.png)
+![demo](src\assets\demo.png??raw=true)
