@@ -6,6 +6,7 @@ import banner from '../assets/banner.jpg'
 import banner2 from '../assets/banner2.jpeg'
 import banner3 from '../assets/banner3.jpg'
 import { NavLink } from 'react-router-dom'
+import mediaQueries from '../styles/breakpoints'
 
 const StyledH1 = styled.h1`
     position: absolute;
@@ -23,6 +24,9 @@ const StyledH1 = styled.h1`
         color: #fff;
         font-size: 4rem;
     }
+    ${mediaQueries.tablet`
+       display: none;
+    `}
 
 `
 

@@ -20,7 +20,7 @@ const Home = (props) => {
     return (
         <StyledMain>
             <Container>
-                <Card fluid>
+                <Card fluid style={{boxShadow: 'none'}}>
                     <Banner/>
                 </Card>
             </Container>

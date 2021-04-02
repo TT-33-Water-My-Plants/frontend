@@ -11,7 +11,7 @@ const FlexContainer = styled.footer`
     }
     ${mediaQueries.phablet`
         flex-direction: column;
-        height: 20vh;
+        height: 400px;
     `}
 `
 
