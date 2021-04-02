@@ -13,23 +13,31 @@ import PlantInfo from './components/plants/PlantInfo'
 import AddPlant from './components/plants/AddPlant'
 
 import ProtectedRoute from './utils/protectedRoute';
+import { ThemeProvider } from 'styled-components'
+import { Theme } from './styles/theme'
+import { GlobalStyle } from './styles/GlobalStyle'
+import Footer from './components/Footer'
 
 
 const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <Container>
-        <Switch>
-           <Route exact path='/' component={Home} />
-           <Route path='/signup' component={SignUp} />
-           <Route path='/login' component={Login} />
-           <Route exact path='/plants/addplant' component={AddPlant} />
-           <ProtectedRoute exact path='/plants' component={PlantsPage} />
-           <Route exact path='/plants/:plantsId' component={PlantInfo} /> {/*PrivateRoute wasn't passing needed params. Keep it a regular route for now.*/}
-        </Switch>
-      </Container>
-    </div>
+    <ThemeProvider theme={Theme}>
+      <GlobalStyle />
+      <div className="App">
+        <Navbar />
+        <Container style={{paddingBottom: '7rem'}}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/login' component={Login} />
+            <Route exact path='/plants/addplant' component={AddPlant} />
+            <ProtectedRoute exact path='/plants' component={PlantsPage} />
+            <Route exact path='/plants/:plantsId' component={PlantInfo} /> {/*PrivateRoute wasn't passing needed params. Keep it a regular route for now.*/}
+          </Switch>
+        </Container>
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 
