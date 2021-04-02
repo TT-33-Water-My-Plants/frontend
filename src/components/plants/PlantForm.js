@@ -5,7 +5,7 @@ import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import { editPlants } from '../../actions/index'
 
 const PlantForm = (props) => {
-    const { editing, setEditing, updating, plantsId, plant, buttonLoader } = props
+    const { editing, setEditing, plantsId, plant, buttonLoader } = props
     const [form, setForm] = useState({nickname: '', species: '', h2oFrequency: '', image: ''})
 
     const handleChange = e => {
@@ -27,7 +27,7 @@ const PlantForm = (props) => {
 
     return (
     <Container style={{padding: '2rem', display: editing ? 'block' : 'none'}}>
-        <Header>Update{}</Header>
+        <Header>Update {plant.nickname}</Header>
             <Card fluid >
                 <Card.Content>
                     <Form onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ const PlantForm = (props) => {
                              />
                     </Form.Field>
                     <Button 
-                    primary
+                    color='green'
                     onClick={() => setEditing(!editing)} >Submit</Button>
                     </Form>
                 </Card.Content>

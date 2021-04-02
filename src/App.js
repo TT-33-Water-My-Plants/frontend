@@ -10,6 +10,7 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 import PlantsPage from './components/plants/PlantsPage'
 import PlantInfo from './components/plants/PlantInfo'
+import AddPlant from './components/plants/AddPlant'
 
 import ProtectedRoute from './utils/protectedRoute';
 
@@ -23,6 +24,7 @@ const App = () => {
            <Route exact path='/' component={Home} />
            <Route path='/signup' component={SignUp} />
            <Route path='/login' component={Login} />
+           <Route exact path='/plants/addplant' component={AddPlant} />
            <ProtectedRoute exact path='/plants' component={PlantsPage} />
            <Route exact path='/plants/:plantsId' component={PlantInfo} /> {/*PrivateRoute wasn't passing needed params. Keep it a regular route for now.*/}
         </Switch>

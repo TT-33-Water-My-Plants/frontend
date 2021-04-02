@@ -1,5 +1,5 @@
 
-import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, UPDATE_PLANTS_START, UPDATE_PLANTS_SUCCESS, LOGIN_SUCCESS, LOGOUT} from '../actions/index'
+import { TEST_CLICK, FETCH_PLANTS_SUCCESS, FETCH_PLANTS_START, UPDATE_PLANTS_START, UPDATE_PLANTS_SUCCESS, LOGIN_SUCCESS, LOGOUT, ADD_PLANTS_START, ADD_PLANTS_SUCCESS} from '../actions/index'
 
 
 
@@ -9,7 +9,12 @@ export const initialState = {
     isLoading: false,
     plants: [],
     updating: [],
-    error: ''
+    adding: [],
+    error: '',
+    currentUser: {
+        user_id: 0,
+        username: ''
+    }
 }
 
 export const reducer = (state = initialState, action) => {
@@ -37,19 +42,32 @@ export const reducer = (state = initialState, action) => {
                 buttonLoader: true
             }
         case UPDATE_PLANTS_SUCCESS: 
-            console.log(action.payload)
             return {
                 ...state,
                 buttonLoader: false,
                 updating: action.payload
             }
-     
+        case ADD_PLANTS_START: 
+            return {
+                ...state,
+                buttonLoader: true
+            }
+        case ADD_PLANTS_SUCCESS:
+            return {
+                ...state,
+                buttonLoader: false,
+                adding: action.payload
+            }
 
             
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                isLoggedIn: action.payload.isLoggedIn
+                isLoggedIn: action.payload.isLoggedIn,
+                currentUser: {
+                    ...state.currentUser,
+                    user_id: action.payload.user_id
+                }
             }
 
         case LOGOUT:

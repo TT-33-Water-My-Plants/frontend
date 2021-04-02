@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Button, Container } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import { fetchPlants } from '../../actions/index'
 
@@ -10,6 +10,7 @@ import PlantCard from './PlantCard'
 
 const PlantsPage = (props) => {
     const { isLoading, plants, error, fetchPlants } = props
+    const history = useHistory()
     
     useEffect(() => {
         fetchPlants()
@@ -18,7 +19,7 @@ const PlantsPage = (props) => {
     return (
         
         <Container>
-            <Button primary>Add Plant</Button> 
+            <Button primary onClick={() => history.push('/plants/addplant')} style={{margin: '2rem 0'}}>Add Plant</Button> 
             {
                 plants.map((plant) => {
                     return (

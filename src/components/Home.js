@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useHistory } from 'react'
 import styled from 'styled-components'
-import { Button, Container } from 'semantic-ui-react'
+import { Button, Card, Container } from 'semantic-ui-react'
 import { testClick } from '../actions/index'
 import { connect } from 'react-redux'
 
@@ -9,20 +9,23 @@ import { connect } from 'react-redux'
 import Banner from './Banner'
 
 const StyledMain = styled.main`
-    width: 100%;
+    
     display: flex;
-    border: 1px solid black;
+   
+    
 `
 
 const Home = (props) => {
     const { testClick, isLoading } = props
+    
     return (
         <StyledMain>
+            <Card style={{width: '50%'}}>
             <Container>
                 <section className='intro'>
                     <h1>Water My Plants</h1>
                     <p>Never forget when it's time to feed your foliage and quench your plants' thirst. </p>
-                    <button>Sign Up</button>
+                    <Button primary >Sign Up</Button>
                 </section>
                 <section>
                     <h2>Awesome Features</h2>
@@ -41,10 +44,12 @@ const Home = (props) => {
                     <h2>Photo Gallery</h2>
                     <p><strong>Healthy Plants</strong> nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
                 </secion>
-                <Button loading={isLoading} color='blue' onClick={() => testClick()} >Test Button</Button>
             </Container>
-            <Container style={{width: '60%'}}>
-                <Banner/>
+            </Card>
+            <Container>
+                <Card>
+                    <Banner/>
+                </Card>
             </Container>
         </StyledMain>
     )
