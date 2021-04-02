@@ -10,7 +10,11 @@ export const initialState = {
     plants: [],
     updating: [],
     adding: [],
-    error: ''
+    error: '',
+    currentUser: {
+        user_id: 0,
+        username: ''
+    }
 }
 
 export const reducer = (state = initialState, action) => {
@@ -38,7 +42,6 @@ export const reducer = (state = initialState, action) => {
                 buttonLoader: true
             }
         case UPDATE_PLANTS_SUCCESS: 
-            console.log(action.payload)
             return {
                 ...state,
                 buttonLoader: false,
@@ -52,6 +55,7 @@ export const reducer = (state = initialState, action) => {
         case ADD_PLANTS_SUCCESS:
             return {
                 ...state,
+                buttonLoader: false,
                 adding: action.payload
             }
 
@@ -59,7 +63,11 @@ export const reducer = (state = initialState, action) => {
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                isLoggedIn: action.payload.isLoggedIn
+                isLoggedIn: action.payload.isLoggedIn,
+                currentUser: {
+                    ...state.currentUser,
+                    user_id: action.payload.user_id
+                }
             }
 
         case LOGOUT:

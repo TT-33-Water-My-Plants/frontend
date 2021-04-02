@@ -27,7 +27,7 @@ const PlantForm = (props) => {
 
     return (
     <Container style={{padding: '2rem', display: editing ? 'block' : 'none'}}>
-        <Header>Update{plant.nickname}</Header>
+        <Header>Update {plant.nickname}</Header>
             <Card fluid >
                 <Card.Content>
                     <Form onSubmit={handleSubmit}>
@@ -67,7 +67,7 @@ const PlantForm = (props) => {
                              />
                     </Form.Field>
                     <Button 
-                    primary
+                    color='green'
                     onClick={() => setEditing(!editing)} >Submit</Button>
                     </Form>
                 </Card.Content>

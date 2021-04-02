@@ -19,7 +19,7 @@ const PlantsPage = (props) => {
     return (
         
         <Container>
-            <Button primary onClick={() => history.push('/plants/addplant')}>Add Plant</Button> 
+            <Button primary onClick={() => history.push('/plants/addplant')} style={{margin: '2rem 0'}}>Add Plant</Button> 
             {
                 plants.map((plant) => {
                     return (

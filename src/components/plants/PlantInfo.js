@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState, useParams } from 'react'
 import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
+import { connect } from 'react-redux'
 
 import PlantForm from './PlantForm'
 
@@ -23,7 +24,7 @@ const StyledMain = styled.section`
 
 `
 
-export default function PlantInfo({match}){
+ const PlantInfo = ({match, user_id}) => {
     const { params: {plantsId} } = match
     const [plant, setPlant] = useState([])
     const [editing, setEditing] = useState(false)
@@ -53,8 +54,10 @@ export default function PlantInfo({match}){
             </StyledMain>
             <Button
                 onClick={() => setEditing(!editing)} 
-                color="green" style={{fontSize: '1.2rem', display: editing ? 'none' : 'block'}}
+                primary style={{fontSize: '1.2rem', display: editing ? 'none' : 'block'}}
              >Edit Plant</Button>
+             <br></br>
+             {user_id === plant.user_id && <Button color='red' style={{fontSize: '1.2rem'}}>Delete</Button> }
              <PlantForm 
                 editing={editing} 
                 setEditing={setEditing} 
@@ -64,3 +67,9 @@ export default function PlantInfo({match}){
        </Container>
     )
 }
+const mapToStateProps = state => {
+    return {
+        user_id: state.currentUser.user_id
+    }
+}
+export default connect(mapToStateProps, {})(PlantInfo)

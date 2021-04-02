@@ -51,8 +51,9 @@ function Login(props) {
 
         axios.post('https://tt-33-water-my-plants-backend.herokuapp.com/auth/login', form)
             .then(res => {
+                console.log(res.data)
                 localStorage.setItem('token', res.data.token);
-                props.login();
+                props.login(res.data.data.user_id);
                 history.push('/');
             })
             .catch(err => {

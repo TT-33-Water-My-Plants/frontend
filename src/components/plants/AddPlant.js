@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card, Container, Form, Label } from 'semantic-ui-react'
+import { Button, Card, Container, Form, Header, Label } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router'
 import { addPlants } from '../../actions/index'
@@ -20,7 +20,8 @@ const AddPlant = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        props.addPlants(form)
+        const plantObj = {...form, user_id: props.user_id}
+        props.addPlants(plantObj)
         setTimeout(() => {
             history.push('/plants')
         }, 700)
@@ -29,6 +30,7 @@ const AddPlant = (props) => {
 
     return (
         <Container>
+        <Header>Add A New Plant</Header>
         <Card fluid>
             <Card.Content>
                 <Form onSubmit={handleSubmit}>
@@ -54,7 +56,7 @@ const AddPlant = (props) => {
                             onChange={handleChange}/>
                     </Form.Field>
                     <Form.Field>
-                        <Label>Water frequency (hours) </Label>
+                        <Label>Water frequency (hours)</Label>
                         <input 
                             name="h2oFrequency"
                             value={form.h2oFrequency}
@@ -73,7 +75,8 @@ const mapToStateProps = state => {
     return {
         buttonLoader: state.false,
         adding: state.adding,
-        error: state.error
+        error: state.error,
+        user_id: state.currentUser.user_id
     }
 }
 export default connect(mapToStateProps, {addPlants})(AddPlant)

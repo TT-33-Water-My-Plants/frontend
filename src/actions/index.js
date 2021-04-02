@@ -52,9 +52,9 @@ export const fetchPlants = () => {
    };
 };
 
-export const login = () => {
+export const login = (id) => {
    return (dispatch) => {
-      dispatch({type: LOGIN_SUCCESS, payload: {isLoggedIn: true}});
+      dispatch({type: LOGIN_SUCCESS, payload: {isLoggedIn: true, user_id: id}});
    };
 };
 
