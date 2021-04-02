@@ -45,7 +45,7 @@ const StyledMain = styled.section`
         .catch(err => {
             console.error(`There was a problem retrieving plant data: ${err}`)
         })
-    },[])
+    },[]) //eslint-disable-line
 
     const handleDelete = () => {
         console.log('delete is being handled')
