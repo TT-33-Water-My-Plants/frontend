@@ -1,4 +1,12 @@
-# Backend Link
-https://tt-33-water-my-plants-backend.herokuapp.com/api/plants
 
-# SOMETHING SOMETHING EXAMPLE
+<h1 align="center">
+  Water My Plants
+</h1>
+<p align="center">
+  A Lambda School "Build Week" collab project where contributors built a fullstack CRUD application in just a (work) weeks time.  
+</p>
+<p align="center">
+  Etc
+</p>
+
+![demo](src\assets\demo.png)

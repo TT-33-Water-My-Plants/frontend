@@ -13,6 +13,10 @@ import Banner from './Banner'
 const StyledMain = styled.main`
     display: flex;
     flex-direction: column;
+
+    li {
+        padding-top: 2rem;
+    }
 `
 
 const Home = (props) => {
@@ -32,13 +36,13 @@ const Home = (props) => {
                             <Header as='h2'>Never forget when it's time to feed your foliage and quench your plants' thirst!</Header>
                             <ul>
                                 <li>
-                                    <Header as='h3'>Third Header</Header>
+                                    <Header as='h3'>Add Plants to the Dashboard</Header>
                                 </li>
                                 <li>
-                                    <Header as='h3'>Third Header</Header>
+                                    <Header as='h3'>Add information for the plant such as it name and watering frequency</Header>
                                 </li>
                                 <li>
-                                    <Header as='h3'>Third Header</Header>
+                                    <Header as='h3'>Delete Plants you are no longer keeping track of</Header>
                                 </li>
                             </ul>
                         </Grid.Column>
