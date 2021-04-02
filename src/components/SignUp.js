@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
+import { Button, Card, Container, Form, Header, Step, Icon } from 'semantic-ui-react'
 import * as yup from 'yup';
 import signUpMechanics from './SignUpMechanics';
 
@@ -66,6 +66,32 @@ import signUpMechanics from './SignUpMechanics';
 
     return (
         <Container text>
+            <Step.Group>
+
+            <Step active>
+                <Step.Content>
+                    <Step.Title>Sign Up!</Step.Title>
+                    <Step.Description>We'll need some info.</Step.Description>
+                </Step.Content>
+                </Step>
+
+                <Step>
+                <Step.Content>
+                    <Step.Title>Go to your plant dashboard!</Step.Title>
+                    <Step.Description>Take a look at the plants.</Step.Description>
+                </Step.Content>
+                </Step>
+
+                <Step>
+                <Step.Content>
+                    <Step.Title>Start tracking!</Step.Title>
+                    <Step.Description>Start watering on time!</Step.Description>
+                </Step.Content>
+                </Step>
+
+            </Step.Group>
+
+
             <Header>Create an account</Header>
             <Card fluid>
                 <Card.Content>
