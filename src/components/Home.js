@@ -1,11 +1,11 @@
-import React, { useHistory } from 'react'
+import React, { useHistory } from 'react'; //eslint-disable-line
 import styled from 'styled-components'
-import { Button, Card, Container, Grid, Segment, Image, Header } from 'semantic-ui-react'
+import { Button, Card, Container, Grid, Segment, Image, Header } from 'semantic-ui-react'; //eslint-disable-line
 import { testClick } from '../actions/index'
 import { connect } from 'react-redux'
 
 import banner from '../assets/banner.jpg'
-import banner2 from '../assets/banner2.jpeg'
+import banner2 from '../assets/banner2.jpeg'; //eslint-disable-line
 
 
 import Banner from './Banner'

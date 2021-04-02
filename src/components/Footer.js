@@ -1,4 +1,4 @@
-import { Card, Container, Header } from "semantic-ui-react";
+import { Card, Container, Header } from "semantic-ui-react"; // eslint-disable-line
 import styled from 'styled-components'
 import mediaQueries from "../styles/breakpoints";
 
@@ -22,13 +22,13 @@ export default function Footer(){
                 <FlexContainer>
                     <div>
                         <Header as="h3">About</Header>
-                        <a href="#">Privacy</a>
+                        <a href="#">Privacy</a> {/* eslint-disable-line*/}
                         <br></br>
-                        <a href="#">Terms</a>
+                        <a href="#">Terms</a> {/* eslint-disable-line*/}
                     </div>
                     <div>
                         <Header as="h3">Services</Header>
-                        <a href="#">Our Products</a>
+                        <a href="#">Our Products</a> {/* eslint-disable-line*/}
                     </div>
                     <div>
                         <Header as="h3">Water My Plants</Header>

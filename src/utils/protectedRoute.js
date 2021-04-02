@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // eslint-disable-line
 import { Redirect, Route } from 'react-router-dom';
 
 export default function ProtectedRoute({ component: Component, ...rest }) {

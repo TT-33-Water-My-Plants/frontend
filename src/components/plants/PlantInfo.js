@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState, useParams } from 'react'
+import React, { useEffect, useState, useParams } from 'react'; // eslint-disable-line
 import { useHistory } from 'react-router-dom'
 import { Button, Container, Image } from 'semantic-ui-react'
 import styled from 'styled-components'

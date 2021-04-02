@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styled from 'styled-components'
-import { Button, Card, Container, Image } from 'semantic-ui-react'
-import banner from '../assets/banner.jpg'
-import banner2 from '../assets/banner2.jpeg'
+import { Button, Card, Container, Image } from 'semantic-ui-react'; // eslint-disable-line
+import banner from '../assets/banner.jpg'; // eslint-disable-line
+import banner2 from '../assets/banner2.jpeg'; // eslint-disable-line
 import banner3 from '../assets/banner3.jpg'
 import { NavLink } from 'react-router-dom'
 import mediaQueries from '../styles/breakpoints'

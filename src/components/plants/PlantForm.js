@@ -5,7 +5,7 @@ import { Button, Card, Container, Form, Header } from 'semantic-ui-react'
 import { editPlants } from '../../actions/index'
 
 const PlantForm = (props) => {
-    const { editing, setEditing, plantsId, plant, buttonLoader } = props
+    const { editing, setEditing, plantsId, plant, buttonLoader } = props; // eslint-disable-line
     const [form, setForm] = useState({nickname: '', species: '', h2oFrequency: '', image: ''})
 
     const handleChange = e => {

@@ -1,12 +1,12 @@
-import React, { Children, useState } from 'react'
+import React, { Children, useState } from 'react'; //eslint-disable-line
 import { Link, useHistory } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Menu, Image, Container } from 'semantic-ui-react'
+import { Menu, Image, Container } from 'semantic-ui-react'; //eslint-disable-line
 import { logout } from '../actions/'
 
 const Navbar = (props) => {
     const [active, setActive] = useState('')
-    const handleClick = (e, {name}) => setActive(active(name))
+    const handleClick = (e, {name}) => setActive(active(name)); //eslint-disable-line
 
     const { isLoggedIn } = props;
 

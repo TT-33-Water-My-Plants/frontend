@@ -9,7 +9,7 @@ import PlantCard from './PlantCard'
 
 
 const PlantsPage = (props) => {
-    const { isLoading, plants, error, fetchPlants } = props
+    const { isLoading, plants, error, fetchPlants } = props; // eslint-disable-line
     const history = useHistory()
     
     useEffect(() => {

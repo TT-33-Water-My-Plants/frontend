@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Button, Card, Container, Form, Header, Step, Icon } from 'semantic-ui-react'
+import { Button, Card, Container, Form, Header, Step, Icon } from 'semantic-ui-react'; //eslint-disable-line
 import * as yup from 'yup';
 import signUpMechanics from './SignUpMechanics';
 
@@ -28,7 +28,7 @@ import signUpMechanics from './SignUpMechanics';
 
     const [form, setForm] = useState(formState);
     const [formErrors, setFormErrors] = useState(formStateErrors);
-    const [disabled, isDisabled] = useState(initDisabled);
+    const [disabled, isDisabled] = useState(initDisabled); //eslint-disable-line
 
     const handleChange = (event) => {
         const { name, value } = event.target;
