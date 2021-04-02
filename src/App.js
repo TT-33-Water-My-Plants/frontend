@@ -16,6 +16,7 @@ import ProtectedRoute from './utils/protectedRoute';
 import { ThemeProvider } from 'styled-components'
 import { Theme } from './styles/theme'
 import { GlobalStyle } from './styles/GlobalStyle'
+import Footer from './components/Footer'
 
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
       <GlobalStyle />
       <div className="App">
         <Navbar />
-        <Container>
+        <Container style={{paddingBottom: '7rem'}}>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/signup' component={SignUp} />
@@ -34,8 +35,8 @@ const App = () => {
             <Route exact path='/plants/:plantsId' component={PlantInfo} /> {/*PrivateRoute wasn't passing needed params. Keep it a regular route for now.*/}
           </Switch>
         </Container>
+        <Footer />
       </div>
-      
     </ThemeProvider>
   )
 }
