@@ -81,8 +81,13 @@ export const editPlants = (id, data) => dispatch => {
 }
 
 //D E L E T E
-export const deletePlant = (data) => {
+export const deletePlant = (id) => {
    return (dispatch) => {
-      dispatch({type: DELETE_PLANT})
+      axios
+      .delete(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`)
+      .then(res => {
+         dispatch({type: DELETE_PLANT, payload: res.data})
+      })
+      
    }
 }

@@ -71,9 +71,10 @@ export const reducer = (state = initialState, action) => {
 
         case DELETE_PLANT:
             console.log('successful delete')
+            console.log(action.payload)
             return ({
                     ...state,
-                    // plants: state.plants.filter(plant => plant.id !== action.payload)
+                    plants: state.plants.filter(plant => plant.id !== action.payload)
                 })
 
         case LOGIN_SUCCESS:

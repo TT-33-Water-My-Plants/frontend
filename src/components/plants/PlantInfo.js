@@ -45,7 +45,7 @@ const StyledMain = styled.section`
 
     const handleDelete = () => {
         console.log('delete is being handled')
-        deletePlant()
+        deletePlant(plantsId)
         
     }
 
