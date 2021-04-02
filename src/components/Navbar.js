@@ -1,5 +1,5 @@
 import React, { Children, useState } from 'react'; //eslint-disable-line
-import { Link, useHistory } from 'react-router-dom' //eslint-disable-line
+import { Link } from 'react-router-dom' //eslint-disable-line
 import { connect } from 'react-redux'
 import { Menu, Image, Container } from 'semantic-ui-react'; //eslint-disable-line
 import { logout } from '../actions/'
