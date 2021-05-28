@@ -30,7 +30,7 @@ export const addPlants = (data) => {
    return (dispatch) => {
       dispatch({type: ADD_PLANTS_START})
       axiosWithAuth()
-      .post(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`, data)
+      .post(`https://ft-water-my-plants-6.herokuapp.com/api/plants`, data)
       .then(res => {
          dispatch({type: ADD_PLANTS_SUCCESS, payload: res.data})
       })
@@ -46,7 +46,7 @@ export const fetchPlants = () => {
    return (dispatch) => {
       dispatch({type: FETCH_PLANTS_START});
       axiosWithAuth()
-      .get(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants`)
+      .get(`https://ft-water-my-plants-6.herokuapp.com/api/plants`)
       .then(res => {
          dispatch({type: FETCH_PLANTS_SUCCESS, payload: res.data});
       })
@@ -72,7 +72,7 @@ export const logout = () => {
 export const editPlants = (id, data) => dispatch => {
       dispatch({type: UPDATE_PLANTS_START})
       axios
-      .put(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`, data)
+      .put(`https://ft-water-my-plants-6.herokuapp.com/api/plants/${id}`, data)
       .then(res => {
          dispatch({type: UPDATE_PLANTS_SUCCESS, payload: res.data})
       })
@@ -86,7 +86,7 @@ export const editPlants = (id, data) => dispatch => {
 export const deletePlant = (id) => {
    return (dispatch) => {
       axios
-      .delete(`https://tt-33-water-my-plants-backend.herokuapp.com/api/plants/${id}`)
+      .delete(`https://ft-water-my-plants-6.herokuapp.com/api/plants/${id}`)
       .then(res => {
          dispatch({type: DELETE_PLANT, payload: res.data})
       })

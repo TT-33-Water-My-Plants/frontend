@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-const signUpMechanics = yup.object().shape({
+const RegSchema = yup.object().shape({
     username: yup
     .string()
     .required('Username is required')
@@ -14,4 +14,4 @@ const signUpMechanics = yup.object().shape({
     .required('Password required')
     .min(6, 'Password must be at least 6 characters long')
 })
-export default signUpMechanics
+export default RegSchema

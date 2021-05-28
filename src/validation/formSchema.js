@@ -10,4 +10,8 @@ export default yup.object().shape({
         .string()
         .required("Password is Required")
         .min(6, "Passwords must be at least 6 characters long."),
+    phone: yup
+        .string()
+        .required("Phone Number is Required")
+        .min(10, "Phone Numbers are 10-digits")
 });

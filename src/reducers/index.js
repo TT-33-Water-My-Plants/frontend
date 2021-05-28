@@ -14,9 +14,9 @@ import {
 
 
 export const initialState = {
-    buttonLoader: false,
-    isLoggedIn: false,
-    isLoading: false,
+    buttonLoader: "false",
+    isLoggedIn: "false",
+    isLoading: "false",
     plants: [],
     updating: [],
     adding: [],
